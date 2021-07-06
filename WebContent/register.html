@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SignUp</title>
+  <link rel="stylesheet" type="text/css" href="signup.css">
+</head>
+<script>
+{
+  function check1(){
+        var n=document.getElementById('uname').value;
+        var error="";
+        if(n.length<6){
+      error="Username should contain atleast 6 characters";
+      document.getElementById("ner").innerHTML=error;}
+        for(var i=0;i<n.length;i++){
+            if(n[i]=='0'||n[i]=='1'||n[i]=='2'||n[i]=='3'||n[i]=='4'||n[i]=='5'||n[i]=='6'||n[i]=='7'||n[i]=='8'||n[i]=='9'){
+                error=error+"\n"+"username should not contain numbers";
+                document.getElementById("ner").innerHTML=error;
+            break;}
+        }
+        document.getElementById("ner").innerHTML=error;
+     
+    }
+      function check2(){
+        var n=document.getElementById('fname').value;
+        var error="";
+        if(n.length<6){
+      error="FirstName should contain atleast 6 characters";
+      document.getElementById("npa").innerHTML=error;}
+        for(var i=0;i<n.length;i++){
+            if(n[i]=='0'||n[i]=='1'||n[i]=='2'||n[i]=='3'||n[i]=='4'||n[i]=='5'||n[i]=='6'||n[i]=='7'||n[i]=='8'||n[i]=='9'){
+                error=error+"\n"+"Name should not contain numbers";
+                document.getElementById("npa").innerHTML=error;
+            break;}
+        }
+        document.getElementById("npa").innerHTML=error;
+     
+    }
+      function check3(){
+        var n=document.getElementById('lname').value;
+        var error="";
+        if(n.length<6){
+      error="LastName should  contain atleast 6 characters";
+      document.getElementById("nem").innerHTML=error;}
+        for(var i=0;i<n.length;i++){
+            if(n[i]=='0'||n[i]=='1'||n[i]=='2'||n[i]=='3'||n[i]=='4'||n[i]=='5'||n[i]=='6'||n[i]=='7'||n[i]=='8'||n[i]=='9'){
+                error=error+"\n"+"Name should not contain numbers";
+                document.getElementById("nem").innerHTML=error;
+            break;}
+        }
+        document.getElementById("nem").innerHTML=error;
+     
+    }
+    function check4(){
+        var error="";
+        var n1=document.getElementById('password').value.length;
+        if(n1<6){
+            error="Password should not be less than 6 characters";
+    document.getElementById("nan").innerHTML=error;}
+    document.getElementById("nan").innerHTML=error;
+
+    }
+    function check6(){
+        var error="";
+        var n1=document.getElementById('password').value.length;
+        var n2=document.getElementById('cpassword').value.length;
+        var n3=document.getElementById('password').value;
+        var n4=document.getElementById('cpassword').value;
+        if(n2!=n1 && n3!=n4){
+            error="Confirm Password must be same as Password";
+    document.getElementById("nta").innerHTML=error;}
+    document.getElementById("nta").innerHTML=error;
+
+    }
+    function check5(){
+        var error="";
+        var c=0;
+        var n=document.getElementById("email").value;
+        if(n[n.length-1]=='m'&&n[n.length-2]=='o'&&n[n.length-3]=='c'){
+        for(var i=0;i<n.length;i++){
+        if(n[i]=='@'){
+        c=1;
+            break;} }}
+            if(c==0)
+            error="E-Mail must be in name@domain.com format";
+            document.getElementById("nnu").innerHTML=error;
+             
+    }
+    function check(){
+        var n1=document.getElementByname('Username').value;
+        var n2=document.getElementByname('Firstname').value;
+        var n3=document.getElementByname('Lastname').value;
+        var n4=document.getElementByname('Emailid').value;
+        var n5=document.getElementByname('Cpassword').value;
+        var n6=document.getElementByname('Rpassword').value;
+        if (n1=="" && n2=="" && n3=="" && n4=="" && n5=="" && n6=="") {
+          return false;
+        }
+        return true;
+    }
+
+}  
+</script>
+<body>
+<div class="login-box">
+  <h2>SignUp</h2>
+  <form action="regiscon.jsp" method="post">
+    <div class="user-box">
+      <br>
+      <div id="ner" class="col"></div>
+      <input type="text" id="uname" name="Username" required="required" onchange="check1()">
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      <br>
+      <div id="npa" class="col"></div>
+      <input type="text" id="fname" name="Firstname" required="required" onchange="check2()">
+      <label>First Name</label>
+    </div>
+    <div class="user-box">
+      <br>
+      <div id="nem" class="col"></div>
+      <input type="text" id="lname" name="Lastname" required="required" onchange="check3()">
+      <label>Last Name</label>
+    </div>
+    <div class="user-box">
+      <br>
+      <div id="nnu" class="col" ></div>
+      <input type="text" id="email" name ="Emailid" required="required" onchange="check5()">
+      <label>Email-Id</label>
+    </div>
+    <div class="user-box">
+      <br>
+      <div id="nan" class="col"></div>
+      <input type="password" id="password" name="Cpassword" required="required" onchange="check4()">
+      <label>Password</label>
+    </div>
+    <div class="user-box">
+      <br>
+      <div id="nta" class="col"></div>
+      <input type="password" id="cpassword" name="Rpassword" required="required" onchange="check6()">
+      <label>Confirm Password</label>
+    </div>
+       <button type="submit">Submit</button>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+  </form>
+</div>
+</body>
+</html>
+
+
+
+<<style>
+<!--
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background-image: url('images/bg1.jpg');
+  background-position:cover;
+  margin-left:0px;
+  padding: 0px;
+  background-size: 1550px 950px;
+  background-repeat: no-repeat;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03f423;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03f423;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #03f423;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03f423,
+              0 0 25px #03f423,
+              0 0 50px #03f423,
+              0 0 100px #03f423;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03f423);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03f423);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03f423);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03f423);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+-->
+</style>
